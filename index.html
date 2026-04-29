@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generaciones del Anime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="listas.css" />
+  
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">ANIME GEN</div>
+  <div class="nav-links">
+    <a href="#home">Inicio</a>
+    <a href="#clasicos">Clásicos</a>
+    <a href="#bigtree">Big Three</a>
+    <a href="#expansion">Expansión</a>
+    <a href="#newgen">New Gen</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ Historia del Anime ✦</p>
+    <h1 class="hero-title">
+      <span class="red">Genera</span><span class="gold">ciones</span>
+    </h1>
+    <p class="hero-sub">Desde los clásicos de los 80 hasta las obras maestras de la década actual. Viaja a través de la historia del anime.</p>
+    <div class="gen-buttons">
+      <a href="#clasicos" class="gen-btn btn-clasicos">
+        Generación Clásica
+        <span class="btn-years">1980s · 1990s</span>
+      </a>
+      <a href="#bigtree" class="gen-btn btn-bigtree">
+        Generación del Big Three
+        <span class="btn-years">2000s</span>
+      </a>
+      <a href="#expansion" class="gen-btn btn-expansion">
+        Generación Expansionista
+        <span class="btn-years">2010s</span>
+      </a>
+      <a href="#newgen" class="gen-btn btn-newgen">
+        New Gen 
+        <span class="btn-years">2020s</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════ CLÁSICOS -->
+<section id="clasicos">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-tag">Generación I</div>
+      <h2 class="section-title">La Generación Clásica</h2>
+      <p class="section-desc">Los pilares que construyeron el anime tal y como lo conocemos. Décadas de los 80 y 90.</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="anime-grid" id="grid-clasicos"></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════ BIG THREE -->
+<section id="bigtree">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-tag">Generación II</div>
+      <h2 class="section-title">La Generación del Big Three</h2>
+      <p class="section-desc">Los tres titanes que dominaron una generación entera junto a otros imprescindibles de los 2000.</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="anime-grid" id="grid-bigtree"></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════ EXPANSIÓN -->
+<section id="expansion">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-tag">Generación III</div>
+      <h2 class="section-title">La Generación Expansionista</h2>
+      <p class="section-desc">La explosión global del anime. 2010-2019, la década que lo cambió todo.</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="anime-grid" id="grid-expansion"></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════ NEW GEN -->
+<section id="newgen">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-tag">Generación IV</div>
+      <h2 class="section-title">La New Gen</h2>
+      <p class="section-desc">Los animes que están definiendo los años 2020 y más allá. La nueva cima de la animación japonesa.</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="anime-grid" id="grid-newgen"></div>
+  </div>
+</section>
+
+<footer>
+  <p>Hecho con ❤️ para los amantes del anime &nbsp;·&nbsp; Datos de <a href="https://myanimelist.net" target="_blank">MyAnimeList</a></p>
+</footer>
+
+<button id="back-top" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════════════
+const CLASICOS = [
+  {
+    title: "Urusei Yatsura",
+    year: "1981",
+    score: "7.78",
+    img: "https://myanimelist.net/images/anime/9/17573.jpg",
+    mal: "https://myanimelist.net/anime/1293/Urusei_Yatsura?q=Urusei%20Yatsura&cat=anime",
+    desc: "Ataru Moroboshi debe salvar la Tierra ganando un juego de persecución contra Lum, la princesa alienígena que termina instalándose en su casa tras confundir su victoria con una propuesta de matrimonio.",
+    genres: ["Comedia", "Romance", "Sci-Fi"]
+  },
+  {
+    title: "Fist of the North Star",
+    year: "1984",
+    score: "7.97",
+    img: "https://myanimelist.net/images/anime/8/18502l.jpg",
+    mal: "https://myanimelist.net/anime/967/Hokuto_no_Ken",
+    desc: "En un mundo post-apocalíptico, Kenshiro usa las artes marciales del Hokuto Shinken para proteger a los débiles.",
+    genres: ["Acción", "Drama", "Sci-Fi"]
+  },
+  {
+    title: "Dragon Ball",
+    year: "1986",
+    score: "7.98",
+    img: "https://myanimelist.net/images/anime/1887/92364.jpg",
+    mal: "https://myanimelist.net/anime/223/Dragon_Ball",
+    desc: "Las aventuras del joven Son Goku en busca de las esferas del dragón. El origen de una leyenda.",
+    genres: ["Aventura", "Comedia"]
+  },
+  {
+    title: "Saint Seiya",
+    year: "1986",
+    score: "7.78",
+    img: "https://myanimelist.net/images/anime/1180/133782.jpg",
+    mal: "https://myanimelist.net/anime/1254/Saint_Seiya",
+    desc: "Los Caballeros del Zodiaco luchan con sus armaduras divinas para proteger a Atenea y la paz del mundo.",
+    genres: ["Acción", "Aventura", "Fantasía"]
+  },
+  {
+    title: "Akira",
+    year: "1988",
+    score: "8.16",
+    img: "https://myanimelist.net/images/anime/1408/114012.jpg",
+    mal: "https://myanimelist.net/anime/47/Akira",
+    desc: "Neo-Tokyo 2019. Un experimento militar desata poderes psíquicos que amenazan con destruir la ciudad.",
+    genres: ["Acción", "Horror", "Sci-Fi"]
+  },
+  {
+    title: "Dragon Ball Z",
+    year: "1989",
+    score: "8.21",
+    img: "https://myanimelist.net/images/anime/1277/142022.jpg",
+    mal: "https://myanimelist.net/anime/813/Dragon_Ball_Z",
+    desc: "Goku adulto defiende la Tierra de los Saiyajins, Freezer y amenazas cósmicas. Definió una generación entera.",
+    genres: ["Acción", "Aventura", "Comedy"]
+  },
+  {
+    title: "Sailor Moon",
+    year: "1992",
+    score: "7.76",
+    img: "https://myanimelist.net/images/anime/1440/92258.jpg",
+    mal: "https://myanimelist.net/anime/530/Bishoujo_Senshi_Sailor_Moon",
+    desc: "Usagi Tsukino despierta su poder como la guerrera que lucha por el amor y la justicia, reuniendo a las Sailor Guardians para proteger a la Tierra y la Luna de las fuerzas del mal.",
+    genres: ["Romance"]
+  },
+  {
+    title: "Yu Yu Hakusho",
+    year: "1992",
+    score: "8.46",
+    img: "https://myanimelist.net/images/anime/1228/111372.jpg",
+    mal: "https://myanimelist.net/anime/392/Yu_Yu_Hakusho",
+    desc: "Yusuke Urameshi muere salvando a un niño y se convierte en detective del mundo espiritual.",
+    genres: ["Acción", "Supernatural"]
+  },
+  {
+    title: "Slam Dunk",
+    year: "1993",
+    score: "8.56",
+    img: "https://myanimelist.net/images/anime/12/86890.jpg",
+    mal: "https://myanimelist.net/anime/170/Slam_Dunk?q=slam&cat=anime",
+    desc: "Hanamichi Sakuragi, un delincuente juvenil, descubre su pasión por el baloncesto. El anime deportivo definitivo.",
+    genres: ["Deportes"]
+  },
+  {
+    title: "Neon Genesis Evangelion",
+    year: "1995",
+    score: "8.37",
+    img: "https://myanimelist.net/images/anime/1314/108941.jpg",
+    mal: "https://myanimelist.net/anime/30/Neon_Genesis_Evangelion",
+    desc: "Shinji pilota un Eva gigante para combatir a los Ángeles. Una obra maestra del mecha y el análisis psicológico.",
+    genres: ["Mecha", "Psychological"]
+  },
+  {
+    title: "Ghost in the Shell",
+    year: "1995",
+    score: "8.27",
+    img: "https://myanimelist.net/images/anime/10/82594.jpg",
+    mal: "https://myanimelist.net/anime/43/Ghost_in_the_Shell",
+    desc: "La Mayor Kusanagi investiga al enigmático Puppet Master en un futuro donde la línea entre humano y máquina se difumina.",
+    genres: ["Misterio", "Sci-Fi", "Suspense"]
+  },
+  {
+    title: "Rurouni Kenshin",
+    year: "1996",
+    score: "8.28",
+    img: "https://myanimelist.net/images/anime/1346/119505.jpg",
+    mal: "https://myanimelist.net/anime/45/Rurouni_Kenshin__Meiji_Kenkaku_Romantan?q=kanshin&cat=anime",
+    desc: "El legendario asesino Hitokiri Battousai vaga por el Japón de la era Meiji como Kenshin Himura, portando una espada de filo invertido para proteger a los inocentes y redimir su pasado sangriento.",
+    genres: ["Acción", "Comedia", "Romance"]
+  },
+  {
+    title: "Cowboy Bebop",
+    year: "1998",
+    score: "8.75",
+    img: "https://myanimelist.net/images/anime/4/19644.jpg",
+    mal: "https://myanimelist.net/anime/1/Cowboy_Bebop?q=cowboy&cat=anime",
+    desc: "Spike Spiegel y su ecléctica tripulación de cazarrecompensas vagan por el espacio a bordo del Bebop, intentando escapar de un pasado que siempre termina por alcanzarlos al ritmo del jazz.",
+    genres: ["Acción", "Sci-Fi"]
+  },
+  {
+    title: "Trigun",
+    year: "1998",
+    score: "8.22",
+    img: "https://myanimelist.net/images/anime/1130/120002.jpg",
+    mal: "https://myanimelist.net/anime/6/Trigun",
+    desc: "Vash la Estampida cruza el desierto con una recompensa millonaria sobre su cabeza, predicando el Amor y Paz mientras escapa de un pasado destructivo y de los cazadores que buscan su fortuna.",
+    genres: ["Acción", "Aventura", "Sci-Fi"]
+  },
+  {
+    title: "Serial Experiments Lain",
+    year: "1998",
+    score: "8.10",
+    img: "https://myanimelist.net/images/anime/1718/91550.jpg",
+    mal: "https://myanimelist.net/anime/339/Serial_Experiments_Lain?q=serial&cat=anime",
+    desc: "Lain Iwakura se sumerge en la red virtual Wired, donde la frontera entre la realidad y el mundo digital se desvanece hasta cuestionar la esencia misma de la existencia humana.",
+    genres: ["Misterio", "Drama", "Sci-Fi", "Suspense"]
+  },
+];
+
+const BIGTREE = [
+  {
+    title: "One Piece",
+    year: "1999",
+    score: "8.73",
+    img: "https://cdn.myanimelist.net/images/anime/6/73245.jpg",
+    mal: "https://myanimelist.net/anime/21/One_Piece",
+    desc: "Monkey D. Luffy y su tripulación navegan por el Grand Line en busca del One Piece. La aventura más épica del anime.",
+    genres: ["Acción", "Aventura", "Fantasía"]
+  },
+  {
+    title: "Naruto",
+    year: "2002",
+    score: "8.02",
+    img: "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+    mal: "https://myanimelist.net/anime/20/Naruto",
+    desc: "Un joven ninja con el zorro de nueve colas sellado en él lucha por convertirse en el Hokage de su aldea.",
+    genres: ["Acción", "Aventura", "Fantasía"]
+  },
+  {
+    title: "Samurai Champloo",
+    year: "2004",
+    score: "8.52",
+    img: "https://myanimelist.net/images/anime/1370/135212.jpg",
+    mal: "https://myanimelist.net/anime/205/Samurai_Champloo?q=samurai%20cham&cat=anime",
+    desc: "Mugen, Jin y Fuu atraviesan el Japón feudal en un viaje frenético y lleno de hip-hop para encontrar al samurái que huele a girasoles, mientras sus espadas chocan en un choque cultural y de estilos sin igual.",
+    genres: ["Acción", "Aventura", "Comedia"]
+  },
+  {
+    title: "Monster",
+    year: "2004",
+    score: "8.89",
+    img: "https://myanimelist.net/images/anime/10/18793.jpg",
+    mal: "https://myanimelist.net/anime/19/Monster?q=monster&cat=anime",
+    desc: "El brillante cirujano Kenzo Tenma salva la vida de un niño en lugar de la de un político, desencadenando el despertar de un monstruo humano que lo obligará a cruzar Europa para detener su rastro de muerte.",
+    genres: ["Drama", "Misterio", "Suspense"]
+  },
+  {
+    title: "Bleach",
+    year: "2004",
+    score: "7.99",
+    img: "https://cdn.myanimelist.net/images/anime/3/40451.jpg",
+    mal: "https://myanimelist.net/anime/269/Bleach",
+    desc: "Ichigo Kurosaki se convierte en Shinigami y protege al mundo de los espíritus malignos llamados Hollows.",
+    genres: ["Acción", "Aventura", "Supernatural"]
+  },
+  {
+    title: "Gintama",
+    year: "2005",
+    score: "8.93",
+    img: "https://myanimelist.net/images/anime/10/73274.jpg",
+    mal: "https://myanimelist.net/anime/918/Gintama?q=gintama&cat=anime",
+    desc: "Gintoki Sakata y los miembros de la Yorozuya sobreviven en un Edo invadido por alienígenas, aceptando cualquier trabajo por dinero mientras protegen su honor samurái entre locura, comedia y drama.",
+    genres: ["Acción", "Comedia", "Sci-Fi"]
+  },
+  {
+    title: "Fate/Stay Night",
+    year: "2006",
+    score: "7.27",
+    img: "https://myanimelist.net/images/anime/4/30327.jpg",
+    mal: "https://myanimelist.net/anime/356/Fate_stay_night",
+    desc: "Shirou Emiya se convierte accidentalmente en el séptimo Maestro de la Guerra del Santo Grial, invocando a Saber para luchar en un ritual sangriento donde solo una pareja de mago y espíritu heroico podrá reclamar el artefacto que cumple cualquier deseo.",
+    genres: ["Action", "Fantasía", "Romance"]
+  },
+  {
+    title: "Black Lagoon",
+    year: "2006",
+    score: "8.04",
+    img: "https://myanimelist.net/images/anime/1906/121592.jpg",
+    mal: "https://myanimelist.net/anime/889/Black_Lagoon",
+    desc: "Rock, un oficinista japonés, es secuestrado por los mercenarios de la Compañía Lagoon y decide abandonar su vida monótona para sumergirse en el inframundo criminal de Roanapur junto a la letal Revy Two Hands.",
+    genres: ["Action"]
+  },
+  {
+    title: "Death Note",
+    year: "2006",
+    score: "8.62",
+    img: "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+    mal: "https://myanimelist.net/anime/1535/Death_Note",
+    desc: "Light Yagami encuentra un cuaderno que mata a quien su nombre escribes. Un thriller psicológico sin igual.",
+    genres: ["Supernatural", "Suspense"]
+  },
+  {
+    title: "Code Geass",
+    year: "2006",
+    score: "8.71",
+    img: "https://cdn.myanimelist.net/images/anime/5/50331.jpg",
+    mal: "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
+    desc: "El príncipe exiliado Lelouch obtiene el poder del Geass y lidera la revolución contra el Imperio Britannian.",
+    genres: ["Mecha", "Drama", "Sci-Fi"]
+  },
+  {
+    title: "Naruto: Shippuden",
+    year: "2007",
+    score: "8.29",
+    img: "https://cdn.myanimelist.net/images/anime/1565/111305.jpg",
+    mal: "https://myanimelist.net/anime/1735/Naruto__Shippuuden",
+    desc: "Naruto regresa más fuerte. La Akatsuki amenaza el mundo ninja. La saga se oscurece y madura.",
+    genres: ["Acción", "Aventura", "Fantasía"]
+  },
+  {
+    title: "Tengen Toppa Gurren Lagann",
+    year: "2007",
+    score: "8.64",
+    img: "https://cdn.myanimelist.net/images/anime/4/5123.jpg",
+    mal: "https://myanimelist.net/anime/2001/Tengen_Toppa_Gurren_Lagann",
+    desc: "Simon y Kamina perforan los cielos con su mecha Gurren Lagann. ¡Quién el infierno crees que soy!",
+    genres: ["Mecha", "Acción", "Sci-Fi"]
+  },
+  {
+    title: "Toradora!",
+    year: "2008",
+    score: "8.04",
+    img: "https://myanimelist.net/images/anime/13/22128.jpg",
+    mal: "https://myanimelist.net/anime/4224/Toradora",
+    desc: "Ryuuji y Taiga, el Dragón y la Tigre Compacta, forman una alianza inesperada para ayudarse mutuamente a confesar su amor a sus mejores amigos.",
+    genres: ["Drama", "Romance"]
+  },
+  {
+    title: "K-On!",
+    year: "2009",
+    score: "7.87",
+    img: "https://myanimelist.net/images/anime/10/76120.jpg",
+    mal: "https://myanimelist.net/anime/5680/K-On",
+    desc: "Yui y sus amigas salvan al club de música ligera de la disolución, pasando sus días entre té, pasteles y sesiones de práctica para convertirse en las legendarias Houkago Tea Time.",
+    genres: ["Comedia", "Slice of Life"]
+  },
+  {
+    title: "Fullmetal Alchemist: Brotherhood",
+    year: "2009",
+    score: "9.11",
+    img: "https://cdn.myanimelist.net/images/anime/1223/96541.jpg",
+    mal: "https://myanimelist.net/anime/5114/Fullmetal_Alchemist__Brotherhood",
+    desc: "Los hermanos Elric buscan la Piedra Filosofal para recuperar sus cuerpos. Considerado por muchos el mejor anime de todos los tiempos.",
+    genres: ["Acción", "Aventura", "Drama", "Fantasía"]
+  },
+];
+
+const EXPANSION = [
+  {
+    title: "Steins;Gate",
+    year: "2011",
+    score: "9.07",
+    img: "https://cdn.myanimelist.net/images/anime/5/73199.jpg",
+    mal: "https://myanimelist.net/anime/9253/Steins_Gate",
+    desc: "Rintaro Okabe descubre cómo enviar mensajes al pasado. Un thriller de viajes en el tiempo con una narrativa magistral.",
+    genres: ["Sci-Fi", "Thriller", "Psychological"]
+  },
+  {
+    title: "Hunter x Hunter (2011)",
+    year: "2011",
+    score: "9.03",
+    img: "https://cdn.myanimelist.net/images/anime/11/33657.jpg",
+    mal: "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011_",
+    desc: "Gon busca a su padre convirtiéndose en Hunter. El sistema Nen y el arco de Chimera Ant elevan el shonen a otro nivel.",
+    genres: ["Acción", "Aventura"]
+  },
+  {
+    title: "Mirai Nikki",
+    year: "2011",
+    score: "7.38",
+    img: "https://myanimelist.net/images/anime/13/33465.jpg",
+    mal: "https://myanimelist.net/anime/10620/Mirai_Nikki_TV",
+    desc: "Yukiteru Amano es arrastrado a un juego mortal de supervivencia orquestado por Deus Ex Machina, donde deberá usar su Diario del Futuro y confiar en la obsesiva Yuno Gasai para convertirse en el nuevo Dios del Tiempo y el Espacio.",
+    genres: ["Acción", "Supernatural", "Suspense"]
+  },
+  {
+    title: "Sword Art Online",
+    year: "2012",
+    score: "7.22",
+    img: "https://myanimelist.net/images/anime/11/39717.jpg",
+    mal: "https://myanimelist.net/anime/11757/Sword_Art_Online?q=Sword%20Art%20Online&cat=anime",
+    desc: "Kirito queda atrapado junto a miles de jugadores en el mundo virtual de Aincrad, donde morir en el juego significa morir en la realidad, y su única salida es conquistar los cien pisos de la torre de acero.",
+    genres: ["Acción", "Aventura", "Fantasía", "Romance"]
+  },
+  {
+    title: "Love, Chunibyo & Other Delusions!",
+    year: "2012",
+    score: "7.70",
+    img: "https://myanimelist.net/images/anime/1905/142840.jpg",
+    mal: "https://myanimelist.net/anime/14741/Chuunibyou_demo_Koi_ga_Shitai?q=Love%2C%20Chunibyo&cat=anime",
+    desc: "Yuta Togashi intenta enterrar su vergonzoso pasado como Dark Flame Master, pero sus planes de normalidad se desmoronan cuando conoce a Rikka Takanashi, una chica que lo arrastra de vuelta al caótico mundo del Chunibyo y los delirios mágicos.",
+    genres: ["Comedia", "Romance"]
+  },
+  {
+    title: "JoJo's Bizarre Adventure",
+    year: "2012",
+    score: "7.87",
+    img: "https://myanimelist.net/images/anime/3/40409.jpg",
+    mal: "https://myanimelist.net/anime/14719/JoJo_no_Kimyou_na_Bouken_TV?q=jojo&cat=anime",
+    desc: "Jonathan Joestar lucha contra la ambición oscura de Dio Brando, dominando el poder del Hamon para detener una amenaza vampírica que marcará el destino de su linaje por generaciones.",
+    genres: ["Acción", "Aventura", "Supernatural"]
+  },
+  {
+    title: "Attack on Titan",
+    year: "2013",
+    score: "8.57",
+    img: "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+    mal: "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
+    desc: "La humanidad sobrevive dentro de enormes murallas protegiéndose de los Titanes. Uno de los anime más impactantes del siglo.",
+    genres: ["Acción", "Drama", "Horror"]
+  },
+  {
+    title: "Tokyo Ghoul",
+    year: "2014",
+    score: "7.79",
+    img: "https://cdn.myanimelist.net/images/anime/5/64449.jpg",
+    mal: "https://myanimelist.net/anime/22319/Tokyo_Ghoul",
+    desc: "Ken Kaneki se convierte a medias en ghoul tras un encuentro fatal. Terror urbano y dilemas de identidad.",
+    genres: ["Horror", "Acción", "Psychological"]
+  },
+  {
+    title: "The Seven Deadly Sins",
+    year: "2014",
+    score: "7.60",
+    img: "https://myanimelist.net/images/anime/8/65409.jpg",
+    mal: "https://myanimelist.net/anime/23755/Nanatsu_no_Taizai?q=The%20Seven%20Deadly%20Sins&cat=anime",
+    desc: "Elizabeth Liones emprende un viaje para reunir a los Siete Pecados Capitales, un grupo de guerreros legendarios liderados por Meliodas, para salvar al reino de la tiranía de los Caballeros Sagrados.",
+    genres: ["Acción", "Aventura", "Fantasia"]
+  },
+  {
+    title: "Your Lie in April",
+    year: "2014",
+    score: "8.64",
+    img: "https://myanimelist.net/images/anime/1405/143284.jpg",
+    mal: "https://myanimelist.net/anime/23273/Shigatsu_wa_Kimi_no_Uso?q=Your%20Lie%20in%20April&cat=anime",
+    desc: "Kousei Arima, un prodigio del piano incapaz de escuchar su propia música, recupera el color de su mundo gracias a la excéntrica violinista Kaori Miyazono, quien lo empuja a enfrentar su trauma antes de que el tiempo se agote.",
+    genres: ["Drama", "Romance"]
+  },
+  {
+    title: "One Punch Man",
+    year: "2015",
+    score: "8.48",
+    img: "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+    mal: "https://myanimelist.net/anime/30276/One_Punch_Man",
+    desc: "Saitama puede vencer a cualquier enemigo con un solo golpe. Parodia y acción de altísimo nivel.",
+    genres: ["Acción", "Comedia", "Superhéroes"]
+  },
+  {
+    title: "My Hero Academia",
+    year: "2016",
+    score: "7.83",
+    img: "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+    mal: "https://myanimelist.net/anime/31964/Boku_no_Hero_Academia",
+    desc: "En un mundo de superhéroes, Izuku Midoriya nace sin poderes pero hereda el One For All.",
+    genres: ["Acción", "Superhéroes"]
+  },
+  {
+    title: "Re:Zero",
+    year: "2016",
+    score: "8.25",
+    img: "https://myanimelist.net/images/anime/1522/128039.jpg",
+    mal: "https://myanimelist.net/anime/31240/Re_Zero_kara_Hajimeru_Isekai_Seikatsu",
+    desc: "Subaru es transportado a un mundo de fantasía con la única habilidad de revivir tras morir. Isekai oscuro y brutal.",
+    genres: ["Isekai", "Fantasía", "Psychological"]
+  },
+  {
+    title: "Demon Slayer",
+    year: "2019",
+    score: "8.41",
+    img: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+    mal: "https://myanimelist.net/anime/38000/Kimetsu_no_Yaiba",
+    desc: "Tanjiro busca cura para su hermana convertida en demonio. La animación de Ufotable redefinió los estándares visuales.",
+    genres: ["Acción", "Sobrenatural"]
+  },
+  {
+    title: "Vinland Saga",
+    year: "2019",
+    score: "8.78",
+    img: "https://myanimelist.net/images/anime/1500/103005.jpg",
+    mal: "https://myanimelist.net/anime/37521/Vinland_Saga?q=vinladn&cat=anime",
+    desc: "Thorfinn busca venganza contra el asesino de su padre, sumergiéndose en un campo de batalla sangriento para encontrar la verdadera paz en la legendaria tierra de Vinland.",
+    genres: ["Acción", "Aventura", "Drama"]
+  },
+];
+
+const NEWGEN = [
+  {
+    title: "Rent-a-Girlfriend",
+    year: "2020",
+    score: "6.84",
+    img: "https://myanimelist.net/images/anime/1902/128382.jpg",
+    mal: "https://myanimelist.net/anime/40839/Kanojo_Okarishimasu?q=rent%20a%20&cat=anime",
+    desc: "Kazuya Kinoshita, tras una ruptura devastadora, alquila a la perfecta Chizuru Mizuhara para llenar su vacío, desencadenando una red de mentiras y malentendidos que lo obligarán a mantener las apariencias frente a su familia y amigos.",
+    genres: ["Comedia", "Romance"]
+  },
+  {
+    title: "Jujutsu Kaisen",
+    year: "2020",
+    score: "8.51",
+    img: "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+    mal: "https://myanimelist.net/anime/40748/Jujutsu_Kaisen",
+    desc: "Yuji Itadori ingiere el dedo de un demonio maldito y se convierte en anfitrión de Sukuna. El shonen más salvaje de los 2020.",
+    genres: ["Acción", "Sobrenatural"]
+  },
+  {
+    title: "Mushoku Tensei",
+    year: "2021",
+    score: "8.33",
+    img: "https://myanimelist.net/images/anime/1530/117776.jpg",
+    mal: "https://myanimelist.net/anime/39535/Mushoku_Tensei__Isekai_Ittara_Honki_Dasu",
+    desc: "Un desempleado fracasado reencarna en un mundo de fantasía como Rudeus Greyrat, decidido a no desperdiciar su segunda oportunidad y vivir su nueva vida al máximo.",
+    genres: ["Acción", " Drama", "Fantasía,", "Ecchi"]
+  },
+  {
+    title: "Tokyo Revengers",
+    year: "2021",
+    score: "7.82",
+    img: "https://myanimelist.net/images/anime/1839/122012.jpg",
+    mal: "https://myanimelist.net/anime/42249/Tokyo_Revengers?q=Tokyo%20Revengers&cat=anime",
+    desc: "Takemichi Hanagaki viaja doce años al pasado para integrarse en la Tokyo Manji Gang, decidido a escalar en la jerarquía criminal y cambiar el destino para evitar la muerte de su única novia de la secundaria.",
+    genres: ["Acción", " Drama"]
+  },
+  {
+    title: "My Dress-Up Darling",
+    year: "2022",
+    score: "8.13",
+    img: "https://myanimelist.net/images/anime/1179/119897.jpg",
+    mal: "https://myanimelist.net/anime/48736/Sono_Bisque_Doll_wa_Koi_wo_Suru?q=My%20Dress-Up%20Darling&cat=anime",
+    desc: "Wakana Gojo, un chico solitario dedicado a fabricar muñecas Hina, ve su vida transformada cuando la popular Marin Kitagawa descubre su talento y lo convence para que sea el artífice de todos sus sueños de cosplay.",
+    genres: ["Romance"]
+  },
+  {
+    title: "Spy x Family",
+    year: "2022",
+    score: "8.42",
+    img: "https://cdn.myanimelist.net/images/anime/1441/122795.jpg",
+    mal: "https://myanimelist.net/anime/50265/Spy_x_Family",
+    desc: "Un espía, una asesina y una niña telépata forman una familia falsa para una misión. Humor y ternura en estado puro.",
+    genres: ["Acción", "Comedia", "Slice of Life"]
+  },
+  {
+    title: "Chainsaw Man",
+    year: "2022",
+    score: "8.43",
+    img: "https://cdn.myanimelist.net/images/anime/1806/126216.jpg",
+    mal: "https://myanimelist.net/anime/44511/Chainsaw_Man",
+    desc: "Denji fusiona su cuerpo con un devil perro motosierra. MAPPA produce el anime más violento, caótico y honesto de la época.",
+    genres: ["Acción", "Sobrenatural", "Gore"]
+  },
+  {
+    title: "Oshi no Ko",
+    year: "2023",
+    score: "8.53",
+    img: "https://cdn.myanimelist.net/images/anime/1812/134736.jpg",
+    mal: "https://myanimelist.net/anime/52034/Oshi_no_Ko?q=oshi%20no%20ko&cat=anime",
+    desc: "Reencarnado como el hijo de su ídolo, AI Hoshino. Una crítica despiadada a la industria del entretenimiento japonés.",
+    genres: ["Drama", "Supernatural"]
+  },
+  {
+    title: "Frieren: Beyond Journey's End",
+    year: "2023",
+    score: "9.27",
+    img: "https://cdn.myanimelist.net/images/anime/1015/138006.jpg",
+    mal: "https://myanimelist.net/anime/52991/Sousou_no_Frieren",
+    desc: "Una maga élfica reflexiona sobre el paso del tiempo y los lazos humanos tras la muerte de sus compañeros.",
+    genres: ["Aventura", "Fantasía", "Drama"]
+  },
+  {
+    title: "The Apothecary Diaries",
+    year: "2023",
+    score: "8.85",
+    img: "https://myanimelist.net/images/anime/1708/138033.jpg",
+    mal: "https://myanimelist.net/anime/54492/Kusuriya_no_Hitorigoto?q=apoti&cat=anime",
+    desc: "Maomao, una joven boticaria secuestrada y vendida al Palacio Imperial, intenta pasar desapercibida como sirvienta hasta que su curiosidad y conocimientos sobre venenos la llevan a resolver los misterios que acechan en el Pabellón Interior.",
+    genres: ["Drama", "Misterio"]
+  },
+  {
+    title: "Solo Leveling",
+    year: "2024",
+    score: "8.16",
+    img: "https://myanimelist.net/images/anime/1801/142390l.jpg",
+    mal: "https://myanimelist.net/anime/52299/Ore_dake_Level_Up_na_Ken",
+    desc: "Sung Jinwoo, el cazador más débil, obtiene un sistema único que le permite subir de nivel sin límite.",
+    genres: ["Acción", "Fantasía"]
+  },
+  {
+    title: "Dandadan",
+    year: "2024",
+    score: "8.42",
+    img: "https://myanimelist.net/images/anime/1584/143719.jpg",
+    mal: "https://myanimelist.net/anime/57334/Dandadan?q=dandadan&cat=anime",
+    desc: "Momo, una chica que cree en fantasmas, y Okarun, un friki de los alienígenas, intercambian apuestas que terminan en una maldición sobrenatural, obligándolos a recuperar las bolas perdidas de Okarun mientras enfrentan amenazas de otros mundos.",
+    genres: ["Acción", "Comedia", "Supernatural"]
+  },
+  {
+    title: "Sakamoto Days",
+    year: "2025",
+    score: "7.59",
+    img: "https://myanimelist.net/images/anime/1026/146459.jpg",
+    mal: "https://myanimelist.net/anime/58939/Sakamoto_Days",
+    desc: "El asesino número uno del mundo ahora regenta una tienda y protege a su familia. Comedia de acción brutal y carismática.",
+    genres: ["Acción", "Comedia"]
+  },
+  {
+    title: "Gachiakuta",
+    year: "2025",
+    score: "8.22",
+    img: "https://myanimelist.net/images/anime/1682/150432.jpg",
+    mal: "https://myanimelist.net/anime/59062/Gachiakuta?q=gachiakuta&cat=anime",
+    desc: "Rudo es arrojado al Abismo por un crimen que no cometió, donde deberá usar su poder como Dador de Vida para transformar la basura en armas y cobrar venganza contra la sociedad que lo desechó.",
+    genres: ["Acción", "Fantasía"]
+  },
+  {
+    title: "Kagurabachi",
+    year: "2027",
+    score: "N/A",
+    img: "https://myanimelist.net/images/anime/1653/157089.jpg",
+    mal: "https://myanimelist.net/anime/64058/Kagurabachi?q=kagura&cat=anime",
+    desc: "Chihiro Rokuhira empuña la katana mágica de su padre para cazar a los hechiceros que masacraron a su familia, sumergiéndose en una senda de sangre y hierro para recuperar las Espadas Encantadas.",
+    genres: ["Acción", "Fantasía"]
+  },
+];
+
+// ═══════════════════════════════════════════════════════
+//  RENDER CARDS
+// ═══════════════════════════════════════════════════════
+function renderGrid(containerId, animes) {
+  const grid = document.getElementById(containerId);
+  animes.forEach((a, i) => {
+    const card = document.createElement('div');
+    card.className = 'anime-card';
+    card.style.transitionDelay = (i * 0.06) + 's';
+    card.innerHTML = `
+      <div class="poster-wrap">
+        <img src="${a.img}" alt="${a.title}" loading="lazy"
+             onerror="this.src='https://cdn.myanimelist.net/images/qm_50.gif'">
+        <span class="badge">${a.year}</span>
+        <a class="mal-link" href="${a.mal}" target="_blank" rel="noopener">MAL ↗</a>
+        <div class="score-overlay">
+          <span class="score">★ ${a.score}</span>
+          <span class="score-label">MAL Score</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${a.title}</div>
+        <div class="card-year">${a.year} · MyAnimeList</div>
+        <div class="card-desc">${a.desc}</div>
+        <div class="card-genres">
+          ${a.genres.map(g => `<span class="genre-tag">${g}</span>`).join('')}
+        </div>
+      </div>
+    `;
+    // click card to open MAL
+    card.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('mal-link')) window.open(a.mal, '_blank');
+    });
+    grid.appendChild(card);
+  });
+}
+
+renderGrid('grid-clasicos', CLASICOS);
+renderGrid('grid-bigtree', BIGTREE);
+renderGrid('grid-expansion', EXPANSION);
+renderGrid('grid-newgen', NEWGEN);
+
+// ═══════════════════════════════════════════════════════
+//  INTERSECTION OBSERVER
+// ═══════════════════════════════════════════════════════
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal, .anime-card').forEach(el => io.observe(el));
+
+// ═══════════════════════════════════════════════════════
+//  BACK TO TOP
+// ═══════════════════════════════════════════════════════
+const btn = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('visible', window.scrollY > 500);
+});
+</script>
+</body>
+</html>
