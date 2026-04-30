@@ -33,9 +33,57 @@ function scoreStr(seasons) {
 
 
 // ═══════════════════════════════════════════════════════════════════════
-//  CLÁSICOS  (1980s – 1990s)
+//  CLÁSICOS  (1970s - 1980s – 1990s)
 // ═══════════════════════════════════════════════════════════════════════
 const CLASICOS = [
+  {
+    title: "Lupin III", year: "1971",
+    seasons: [
+      { label: "T1",         score: 7.65 },
+      { label: "T2",         score: 7.84 },
+      { label: "T3",         score: 7.39 },
+      { label: "T4",         score: 7.92 },
+      { label: "T5",         score: 8.15 },
+      { label: "T6",         score: 7.27 },
+    ],
+    img: "https://myanimelist.net/images/anime/10/15625.jpg",
+    mal: "https://myanimelist.net/anime/1412/Lupin_III",
+    desc: "Arsene Lupin III, el nieto del legendario caballero ladrón, recorre el mundo junto a su banda para ejecutar los robos más imposibles, siempre un paso por delante del incansable inspector Zenigata.",
+    genres: ["Acción", "Aventura", "Comedia"],
+  },
+  {
+    title: "Mazinger Z", year: "1973",
+    seasons: [
+      { label: "T1",         score: 7.34 },
+      { label: "T2",         score: 7.21 },
+      { label: "Pelicula",   score: 7.02 },
+
+    ],
+    img: "https://myanimelist.net/images/anime/1485/144735.jpg",
+    mal: "https://myanimelist.net/anime/2253/Mazinger_Z",
+    desc: "Koji Kabuto hereda el legado de su abuelo para pilotar al titán de Aleación Z, convirtiéndose en la última línea de defensa de la humanidad contra las bestias mecánicas del Dr. Hell y sus planes de conquista mundial.",
+    genres: ["Drama", "Sci-Fi", "Mecha"],
+  },
+  {
+    title: "Heidi", year: "1974",
+    seasons: [
+      { label: "T1",         score: 7.46 },
+    ],
+    img: "https://myanimelist.net/images/anime/1338/110897.jpg",
+    mal: "https://myanimelist.net/anime/2225/Alps_no_Shoujo_Heidi?q=heidi&cat=anime",
+    desc: "Heidi, una niña huérfana de corazón puro, es enviada a vivir con su huraño abuelo a los Alpes suizos, donde su alegría transforma la vida de quienes la rodean mientras descubre la libertad de las montañas y la importancia de la amistad.",
+    genres: ["Drama"],
+  },
+  {
+    title: "Candy Candy", year: "1976",
+    seasons: [
+      { label: "T1",         score: 7.65 },
+    ],
+    img: "https://myanimelist.net/images/anime/1014/155437.jpg",
+    mal: "https://myanimelist.net/anime/2800/Candy_Candy?q=Candi%20candy&cat=anime",
+    desc: "Candy, una optimista huérfana abandonada en la Colina de Pony, navega por las alegrías y tragedias de la vida mientras busca su lugar en el mundo, marcada por su encuentro con el misterioso Príncipe de la Colina y sus intensos amores entre la aristocracia y la guerra.",
+    genres: ["Drama", "Romance"],
+  },
   {
     title: "Urusei Yatsura", year: "1981",
     seasons: [
@@ -98,6 +146,19 @@ const CLASICOS = [
     mal: "https://myanimelist.net/anime/47/Akira",
     desc: "Neo-Tokyo 2019. Un experimento militar desata poderes psíquicos que amenazan con destruir la ciudad.",
     genres: ["Acción", "Horror", "Sci-Fi"],
+  },
+  {
+    title: "Ranma ½", year: "1989",
+    seasons: [
+      { label: "T1", score: 7.78 },
+      { label: "OVA1", score: 7.75 },
+      { label: "OVA2", score: 7.59 },
+      { label: "OVA3", score: 7.65 },
+    ],
+    img: "https://myanimelist.net/images/anime/13/6441.jpg",
+    mal: "https://myanimelist.net/anime/210/Ranma_%C2%BD?q=ranma&cat=anime",
+    desc: "Ranma Saotome, un joven experto en artes marciales, sufre una maldición tras caer en los estanques de Jusenkyo: se convierte en chica al tocar el agua fría, recuperando su forma masculina con el agua caliente, mientras intenta lidiar con su prometida a la fuerza, Akane Tendo, y un desfile de rivales igual de locos.",
+    genres: ["Acción", "Comedia", "Romance", "Ecchi"],
   },
   {
     title: "Dragon Ball Z", year: "1989",
@@ -224,6 +285,30 @@ const BIGTREE = [
     genres: ["Acción", "Aventura", "Fantasía"],
   },
   {
+    title: "Hajime no Ippo", year: "2000",
+    seasons: [
+      { label: "T1", score: 8.78 },
+      { label: "OVA1", score: 8.26 },
+      { label: "OVA2", score: 8.26 },
+      { label: "T2", score: 8.67 },
+      { label: "T3", score: 8.61 },
+    ],
+    img: "https://myanimelist.net/images/anime/4/86334.jpg",
+    mal: "https://myanimelist.net/anime/263/Hajime_no_Ippo?q=hajime%20&cat=anime#",
+    desc: "Ippo Makunouchi, un joven tímido y víctima de bullying, descubre su potencial oculto tras conocer al boxeador Mamoru Takamura, iniciando un ascenso meteórico en el mundo del boxeo profesional para descubrir por fin qué significa realmente ser fuerte.",
+    genres: ["Sports"],
+  },
+  {
+    title: "Hajime no Ippo", year: "2002",
+    seasons: [
+      { label: "T1", score: 8.08 },
+    ],
+    img: "https://myanimelist.net/images/anime/1066/117358.jpg",
+    mal: "https://myanimelist.net/anime/66/Azumanga_Daiou_The_Animation?q=azumanga&cat=anime",
+    desc: "Seis estudiantes de preparatoria con personalidades opuestas —desde la niña genio de diez años Chiyo-chan hasta la distraída y excéntrica Osaka— viven el día a día escolar a través de situaciones absurdas, sueños surrealistas y una amistad inquebrantable que define el género del slice of life.",
+    genres: ["Comedia"],
+  },
+  {
     title: "Naruto", year: "2002",
     seasons: [
       { label: "T1", score: 8.02 },
@@ -296,6 +381,28 @@ const BIGTREE = [
     genres: ["Acción", "Fantasía", "Romance"],
   },
   {
+    title: "The Melancholy of Haruhi Suzumiya", year: "2006",
+    seasons: [
+      { label: "T1", score: 7.82 },
+      { label: "T2", score: 7.23 },
+      { label: "Pelicula", score: 8.59 },
+    ],
+    img: "https://myanimelist.net/images/anime/1470/137929.jpg",
+    mal: "https://myanimelist.net/anime/849/Suzumiya_Haruhi_no_Yuuutsu?q=Suzumiya&cat=anime",
+    desc: "Kyon, un estudiante que solo busca una vida escolar normal, es arrastrado por la excéntrica Haruhi Suzumiya para fundar la Brigada SOS, un club dedicado a buscar alienígenas, viajeros del tiempo y personas con poderes, sin saber que Haruhi tiene el poder inconsciente de destruir y recrear el universo a su antojo.",
+    genres: ["Comedia", "Misterio", "Sci-Fi"],
+  },
+  {
+    title: "Nana", year: "2006",
+    seasons: [
+      { label: "T1", score: 8.57 },
+    ],
+    img: "https://myanimelist.net/images/anime/2/11232.jpg",
+    mal: "https://myanimelist.net/anime/877/Nana?q=Nana&cat=anime",
+    desc: "Nana Komatsu y Nana Osaki, dos chicas con el mismo nombre pero personalidades opuestas, se conocen en un tren rumbo a Tokio; sus destinos se entrelazan mientras comparten un apartamento, navegando entre los dramas del amor, la ambición musical y la dura realidad de alcanzar la madurez en la escena del punk rock.",
+    genres: ["Comedia", "Misterio", "Sci-Fi"],
+  },
+  {
     title: "Black Lagoon", year: "2006",
     seasons: [
       { label: "T1", score: 8.04 },
@@ -346,7 +453,17 @@ const BIGTREE = [
     img: "https://cdn.myanimelist.net/images/anime/4/5123.jpg",
     mal: "https://myanimelist.net/anime/2001/Tengen_Toppa_Gurren_Lagann",
     desc: "Simon y Kamina perforan los cielos con su mecha Gurren Lagann. ¡Quién el infierno crees que soy!",
-    genres: ["Mecha", "Acción", "Sci-Fi"],
+    genres: ["Acción", "Sci-Fi", "Mecha"],
+  },
+  {
+    title: "Soul Eater", year: "2008",
+    seasons: [
+      { label: "T1", score: 7.86 },
+    ],
+    img: "https://myanimelist.net/images/anime/1071/149486.jpg",
+    mal: "https://myanimelist.net/anime/3588/Soul_Eater?q=Soul%20eater&cat=anime",
+    desc: "En la ciudad de Death City, los estudiantes de la AMMA forman parejas de técnicos y armas vivientes con un único objetivo: recolectar 99 almas humanas corrompidas, todo mientras luchan por mantener la cordura y el orden bajo la supervisión de Shinigami-sama.",
+    genres: ["Acción", "Comedia", "Fantasía"],
   },
   {
     title: "Toradora!", year: "2008",
