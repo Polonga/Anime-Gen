@@ -299,7 +299,7 @@ const BIGTREE = [
     genres: ["Sports"],
   },
   {
-    title: "Hajime no Ippo", year: "2002",
+    title: "Azumanga Daioh", year: "2002",
     seasons: [
       { label: "T1", score: 8.08 },
     ],
