@@ -1,0 +1,599 @@
+/* ═══════════════════════════════════════════════════════
+   LISTAS.CSS — Grids, cards, generaciones y ranking page
+   ═══════════════════════════════════════════════════════ */
+
+/* ── HERO / HOME (solo index) — layout en global.css ── */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(230,57,70,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 60%, rgba(155,93,229,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(46,196,182,0.1) 0%, transparent 70%),
+    var(--bg);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+.hero-eyebrow {
+  font-size: 0.75rem; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--accent3); font-weight: 700; margin-bottom: 1.2rem;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 12vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: 4px;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+.hero-title span.red { color: var(--accent1); }
+.hero-title span.gold { color: var(--gold); }
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin: 1.5rem auto 3rem;
+  max-width: 520px;
+  line-height: 1.6;
+  animation: fadeUp 1s 0.2s ease both;
+  text-align: center;
+}
+.gen-buttons {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+  animation: fadeUp 1.1s 0.3s ease both;
+}
+.gen-btn {
+  position: relative; text-decoration: none;
+  padding: 1rem 2rem; border: 1px solid;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem; letter-spacing: 2px;
+  transition: all 0.25s; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+}
+.gen-btn .btn-years { font-family: 'Rajdhani', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; opacity: 0.7; }
+.gen-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: currentColor; opacity: 0; transition: opacity 0.25s;
+}
+.gen-btn:hover::before { opacity: 0.12; }
+.gen-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+
+.btn-clasicos  { color: var(--gold);    border-color: var(--gold); }
+.btn-bigtree   { color: var(--accent1); border-color: var(--accent1); }
+.btn-expansion { color: var(--accent3); border-color: var(--accent3); }
+.btn-newgen    { color: var(--accent4); border-color: var(--accent4); }
+.btn-ranking {
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent1), var(--accent4));
+  border-color: transparent;
+  font-size: 1rem;
+}
+.btn-ranking:hover { opacity: 0.85; }
+
+/* ── ANIME GRID ── */
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── ANIME CARD ── */
+.anime-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s, border-color 0.25s;
+}
+.anime-card.visible { opacity: 1; transform: translateY(0); }
+.anime-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.anime-card .poster-wrap {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/4;
+}
+.anime-card .poster-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s;
+  display: block;
+}
+.anime-card:hover .poster-wrap img { transform: scale(1.06); }
+
+.anime-card .badge {
+  position: absolute; top: 10px; left: 10px;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
+  padding: 0.2rem 0.6rem; border-radius: 2px; text-transform: uppercase;
+}
+.anime-card .mal-link {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text); text-decoration: none;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
+  padding: 0.25rem 0.55rem; border-radius: 2px;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.anime-card .mal-link:hover { background: var(--accent1); }
+
+.anime-card .score-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 2rem 0.8rem 0.7rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.anime-card .score {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem;
+  color: var(--gold);
+}
+.anime-card .score-label { font-size: 0.65rem; color: var(--muted); font-weight: 600; letter-spacing: 1px; }
+
+.anime-card .card-body { padding: 0.9rem 1rem 1rem; }
+.anime-card .card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; letter-spacing: 1.5px; line-height: 1.15;
+  margin-bottom: 0.3rem;
+}
+.anime-card .card-year {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase; margin-bottom: 0.6rem;
+}
+.anime-card .card-desc {
+  font-size: 0.8rem; color: var(--muted); line-height: 1.5;
+}
+.anime-card .card-genres {
+  display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem;
+}
+.anime-card .genre-tag {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 1px;
+  padding: 0.15rem 0.5rem; border-radius: 2px;
+  background: var(--border); color: var(--muted); text-transform: uppercase;
+}
+
+/* ── SECTION COLOR THEMES ── */
+/* Clásicos */
+#clasicos .section-tag  { background: rgba(255,209,102,0.15); color: var(--gold); }
+#clasicos .section-title { color: var(--gold); }
+#clasicos .section-line  { background: var(--gold); }
+#clasicos .anime-card:hover { border-color: var(--gold); box-shadow: 0 20px 60px rgba(255,209,102,0.15); }
+#clasicos .badge  { background: var(--gold); color: #000; }
+#clasicos .genre-tag { background: rgba(255,209,102,0.1); color: var(--gold); }
+
+/* Big Three */
+#bigtree .section-tag  { background: rgba(230,57,70,0.15); color: var(--accent1); }
+#bigtree .section-title { color: var(--accent1); }
+#bigtree .section-line  { background: var(--accent1); }
+#bigtree .anime-card:hover { border-color: var(--accent1); box-shadow: 0 20px 60px rgba(230,57,70,0.15); }
+#bigtree .badge  { background: var(--accent1); color: #fff; }
+#bigtree .genre-tag { background: rgba(230,57,70,0.1); color: var(--accent1); }
+
+/* Expansion */
+#expansion .section-tag  { background: rgba(46,196,182,0.15); color: var(--accent3); }
+#expansion .section-title { color: var(--accent3); }
+#expansion .section-line  { background: var(--accent3); }
+#expansion .anime-card:hover { border-color: var(--accent3); box-shadow: 0 20px 60px rgba(46,196,182,0.15); }
+#expansion .badge  { background: var(--accent3); color: #000; }
+#expansion .genre-tag { background: rgba(46,196,182,0.1); color: var(--accent3); }
+
+/* New Gen */
+#newgen .section-tag  { background: rgba(155,93,229,0.15); color: var(--accent4); }
+#newgen .section-title { color: var(--accent4); }
+#newgen .section-line  { background: var(--accent4); }
+#newgen .anime-card:hover { border-color: var(--accent4); box-shadow: 0 20px 60px rgba(155,93,229,0.15); }
+#newgen .badge  { background: var(--accent4); color: #fff; }
+#newgen .genre-tag { background: rgba(155,93,229,0.1); color: var(--accent4); }
+
+/* ══════════════════════════════════════════════════════
+   RANKING PAGE STYLES
+   ══════════════════════════════════════════════════════ */
+
+/* Hero del ranking */
+.ranking-hero {
+  min-height: 38vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding-top: 60px;
+  text-align: center;
+}
+.ranking-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(230,57,70,0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(255,209,102,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 20%, rgba(155,93,229,0.12) 0%, transparent 60%),
+    var(--bg);
+}
+.ranking-hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+  pointer-events: none;
+}
+.ranking-hero-content { position: relative; z-index: 1; padding: 2rem; }
+.ranking-eyebrow {
+  font-size: 0.75rem; letter-spacing: 6px; text-transform: uppercase;
+  color: var(--gold); font-weight: 700; margin-bottom: 1rem;
+  animation: fadeUp 0.8s ease both;
+}
+.ranking-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.9; letter-spacing: 4px;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+.ranking-title .r1 { color: var(--accent1); }
+.ranking-title .r2 { color: var(--gold); }
+.ranking-title .r3 { color: var(--text); }
+.ranking-sub {
+  color: var(--muted); font-size: 1rem; margin-top: 1rem;
+  animation: fadeUp 1s 0.2s ease both;
+}
+
+/* Controles de orden */
+.ranking-controls {
+  display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
+  padding: 2rem 2rem 0;
+  animation: fadeUp 1.1s 0.3s ease both;
+}
+.ctrl-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; letter-spacing: 2px;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.22s;
+}
+.ctrl-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.ctrl-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255,209,102,0.08); }
+
+/* Volver link */
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  color: var(--muted); text-decoration: none;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  transition: color 0.2s;
+  margin-left: 2rem; margin-top: 1.5rem;
+  animation: fadeUp 0.7s ease both;
+}
+.back-link:hover { color: var(--accent2); }
+
+/* ── RANKING GLOBAL: lista única ── */
+.rank-list {
+  max-width: 1000px; margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+
+.rank-item {
+  display: grid;
+  grid-template-columns: 56px 70px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.6rem 1rem 0.6rem 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  opacity: 0; transform: translateX(-20px);
+  animation: slideIn 0.45s ease forwards;
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+.rank-item:hover { transform: translateX(6px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+
+/* número de posición */
+.rank-pos {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem; text-align: center;
+  color: var(--muted); line-height: 1;
+  min-width: 40px;
+}
+.rank-pos.top1 { color: var(--gold); font-size: 2.2rem; }
+.rank-pos.top2 { color: #c0c0c0; font-size: 2rem; }
+.rank-pos.top3 { color: #cd7f32; font-size: 1.9rem; }
+.rank-pos.last { color: var(--muted); opacity: 0.5; }
+
+/* poster */
+.rank-img {
+  width: 60px; height: 80px; object-fit: cover; border-radius: 2px; display: block;
+}
+
+/* info texto */
+.rank-info { min-width: 0; }
+.rank-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem; letter-spacing: 1.5px; line-height: 1.1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.rank-meta {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase; margin-top: 0.25rem;
+  display: flex; gap: 0.6rem; align-items: center;
+}
+.rank-gen-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+}
+
+/* score right */
+.rank-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  white-space: nowrap;
+  text-align: right;
+}
+.rank-score.na { color: var(--muted); font-size: 1.1rem; letter-spacing: 2px; }
+
+/* Colores por generación en rank */
+.rank-item.gen-clasicos  { box-shadow: inset 4px 0 0 var(--gen-clasicos); }
+.rank-item.gen-bigtree   { box-shadow: inset 4px 0 0 var(--gen-bigtree); }
+.rank-item.gen-expansion { box-shadow: inset 4px 0 0 var(--gen-expansion); }
+.rank-item.gen-newgen    { box-shadow: inset 4px 0 0 var(--gen-newgen); }
+
+.rank-item.gen-clasicos:hover  { border-color: var(--gen-clasicos); box-shadow: inset 4px 0 0 var(--gen-clasicos), 0 8px 30px rgba(255,209,102,0.18); }
+.rank-item.gen-bigtree:hover   { border-color: var(--gen-bigtree);  box-shadow: inset 4px 0 0 var(--gen-bigtree),  0 8px 30px rgba(230,57,70,0.18); }
+.rank-item.gen-expansion:hover { border-color: var(--gen-expansion);box-shadow: inset 4px 0 0 var(--gen-expansion),0 8px 30px rgba(46,196,182,0.18); }
+.rank-item.gen-newgen:hover    { border-color: var(--gen-newgen);   box-shadow: inset 4px 0 0 var(--gen-newgen),   0 8px 30px rgba(155,93,229,0.18); }
+
+/* ── RANKING POR CATEGORÍAS ── */
+.categories-wrap {
+  max-width: 1300px; margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.cat-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUpCat 0.5s ease forwards;
+}
+@keyframes fadeUpCat {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cat-header {
+  padding: 0.8rem 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: 3px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cat-header.gen-clasicos  { color: var(--gen-clasicos); border-color: var(--gen-clasicos); background: rgba(255,209,102,0.05); }
+.cat-header.gen-bigtree   { color: var(--gen-bigtree);  border-color: var(--gen-bigtree);  background: rgba(230,57,70,0.05); }
+.cat-header.gen-expansion { color: var(--gen-expansion);border-color: var(--gen-expansion);background: rgba(46,196,182,0.05); }
+.cat-header.gen-newgen    { color: var(--gen-newgen);   border-color: var(--gen-newgen);   background: rgba(155,93,229,0.05); }
+
+.cat-list { list-style: none; padding: 0; }
+.cat-list li {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid rgba(30,30,53,0.6);
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.cat-list li:last-child { border-bottom: none; }
+.cat-list li:hover { background: rgba(255,255,255,0.04); }
+
+.cat-pos {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; color: var(--muted);
+  min-width: 22px; text-align: center;
+}
+.cat-pos.p1 { color: var(--gold); }
+.cat-pos.p2 { color: #c0c0c0; }
+.cat-pos.p3 { color: #cd7f32; }
+
+.cat-thumb {
+  width: 32px; height: 42px; object-fit: cover; border-radius: 2px; flex-shrink: 0;
+}
+.cat-info { flex: 1; min-width: 0; }
+.cat-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem; letter-spacing: 1px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cat-year {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--muted); text-transform: uppercase;
+}
+.cat-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; color: var(--gold); white-space: nowrap;
+}
+.cat-score.na { color: var(--muted); font-size: 0.85rem; }
+
+/* ── RESPONSIVE RANK ── */
+@media (max-width: 640px) {
+  .rank-item { grid-template-columns: 40px 50px 1fr auto; gap: 0.6rem; }
+  .rank-img { width: 46px; height: 62px; }
+  .rank-pos { font-size: 1.4rem; }
+  .rank-score { font-size: 1.2rem; }
+  .categories-wrap { grid-template-columns: 1fr; }
+  .gen-buttons { flex-direction: column; align-items: stretch; }
+  .gen-btn { text-align: center; }
+  .anime-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+}
+
+/* ══════════════════════════════════════════════════════
+   STATS TABLE — Media por generación
+   ══════════════════════════════════════════════════════ */
+
+.stats-wrap {
+  max-width: 1100px; margin: 2.5rem auto 0;
+  padding: 0 2rem;
+}
+
+.stats-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.stats-title-wrap { display: flex; flex-direction: column; gap: 0.2rem; }
+.stats-eyebrow {
+  font-size: 0.68rem; letter-spacing: 5px; text-transform: uppercase;
+  font-weight: 700; color: var(--muted);
+}
+.stats-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 3px; line-height: 1;
+  color: var(--text);
+}
+.stats-sub {
+  font-size: 0.78rem; color: var(--muted);
+  font-weight: 600; letter-spacing: 1px;
+  align-self: flex-end;
+}
+
+/* ── Grid de tarjetas ── */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* ── Tarjeta individual ── */
+.stats-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeUpCat 0.5s ease forwards;
+  opacity: 0;
+}
+.stats-card:nth-child(1) { animation-delay: 0.05s; }
+.stats-card:nth-child(2) { animation-delay: 0.12s; }
+.stats-card:nth-child(3) { animation-delay: 0.19s; }
+.stats-card:nth-child(4) { animation-delay: 0.26s; }
+
+.stats-card:hover { transform: translateY(-4px); }
+
+.stats-card.gen-clasicos:hover  { box-shadow: 0 12px 40px rgba(255,209,102,0.18); border-color: var(--gen-clasicos); }
+.stats-card.gen-bigtree:hover   { box-shadow: 0 12px 40px rgba(230,57,70,0.18);   border-color: var(--gen-bigtree); }
+.stats-card.gen-expansion:hover { box-shadow: 0 12px 40px rgba(46,196,182,0.18);  border-color: var(--gen-expansion); }
+.stats-card.gen-newgen:hover    { box-shadow: 0 12px 40px rgba(155,93,229,0.18);  border-color: var(--gen-newgen); }
+
+/* cabecera de color */
+.stats-card-top { padding: 0.9rem 1rem 0.6rem; }
+.stats-card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.stats-gen-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: 3px;
+}
+.stats-card-header.gen-clasicos  .stats-gen-label { color: var(--gen-clasicos); }
+.stats-card-header.gen-bigtree   .stats-gen-label { color: var(--gen-bigtree); }
+.stats-card-header.gen-expansion .stats-gen-label { color: var(--gen-expansion); }
+.stats-card-header.gen-newgen    .stats-gen-label { color: var(--gen-newgen); }
+
+.stats-medal { font-size: 1.2rem; }
+.stats-period {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase;
+}
+
+/* número de media grande */
+.stats-avg-row {
+  display: flex; align-items: baseline; gap: 0.4rem;
+  padding: 0.4rem 1rem 0.6rem;
+}
+.stats-avg-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem; line-height: 1;
+  color: var(--gold);
+}
+.stats-avg-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* barra de progreso */
+.stats-bar-wrap {
+  height: 4px; background: var(--border);
+  margin: 0 1rem 0.9rem;
+  border-radius: 2px; overflow: hidden;
+}
+.stats-bar {
+  height: 100%; border-radius: 2px;
+  transition: width 0.8s cubic-bezier(.4,0,.2,1);
+}
+.gen-bar-clasicos  { background: var(--gen-clasicos); }
+.gen-bar-bigtree   { background: var(--gen-bigtree); }
+.gen-bar-expansion { background: var(--gen-expansion); }
+.gen-bar-newgen    { background: var(--gen-newgen); }
+
+/* grid de detalle: series / mejor / peor */
+.stats-detail-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-detail-item {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0.6rem 0.3rem;
+  border-right: 1px solid var(--border);
+}
+.stats-detail-item:last-child { border-right: none; }
+.stats-detail-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem; color: var(--text); line-height: 1;
+}
+.stats-detail-key {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-top: 0.15rem;
+}
+
+/* mejor anime con miniatura */
+.stats-best-anime {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.025);
+  margin-top: auto;
+}
+.stats-best-anime img {
+  width: 34px; height: 46px; object-fit: cover;
+  border-radius: 2px; flex-shrink: 0;
+}
+.stats-best-label {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem;
+}
+.stats-best-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.88rem; letter-spacing: 1px; line-height: 1.1;
+  color: var(--text);
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* ── Responsive stats ── */
+@media (max-width: 900px) {
+  .stats-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .stats-cards { grid-template-columns: 1fr; }
+  .stats-header { flex-direction: column; align-items: flex-start; }
+}
