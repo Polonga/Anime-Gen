@@ -505,6 +505,17 @@ const BIGTREE = [
 // ═══════════════════════════════════════════════════════════════════════
 const EXPANSION = [
   {
+    title: "Nichijou", year: "2011",
+    seasons: [
+      { label: "T1", score: 8.47 },
+      { label: "OVA", score: 7.41 },
+    ],
+    img: "https://myanimelist.net/images/anime/3/75617.jpg",
+    mal: "https://myanimelist.net/anime/10165/Nichijou",
+    desc: "Vidas ordinarias que explotan en situaciones surrealistas, desde un robot con una llave en la espalda hasta un director que lucha contra un ciervo; es el caos absoluto de la cotidianidad.",
+    genres: ["Comedia"],
+  },
+  {
     title: "Steins;Gate", year: "2011",
     seasons: [
       { label: "T1", score: 9.07 },
@@ -602,6 +613,26 @@ const EXPANSION = [
     genres: ["Acción", "Drama", "Horror"],
   },
   {
+    title: "Golden Time", year: "2013",
+    seasons: [
+      { label: "T1", score: 7.74 },
+    ],
+    img: "https://myanimelist.net/images/anime/12/52091.jpg",
+    mal: "https://myanimelist.net/anime/17895/Golden_Time?q=golden%20time&cat=anime",
+    desc: "Banri Tada, un estudiante con amnesia, intenta reconstruir su vida en Tokio mientras se debate entre su pasado olvidado y su caótica relación con la intensa Koko Kaga.",
+    genres: ["Drama", "Romance"],
+  },
+  {
+    title: "Kill la Kill", year: "2013",
+    seasons: [
+      { label: "T1", score: 8.03 },
+    ],
+    img: "https://myanimelist.net/images/anime/1464/111943.jpg",
+    mal: "https://myanimelist.net/anime/18679/Kill_la_Kill?q=Kill%20la%20kill&cat=anime",
+    desc: "Ryuko Matoi llega a la Academia Honnouji buscando venganza con media tijera gigante, enfrentándose al consejo estudiantil y a sus uniformes con voluntad propia para descubrir la verdad tras la muerte de su padre.",
+    genres: ["Acción", "Comedia", "Fantasía", "Ecchi"],
+  },
+  {
     title: "Tokyo Ghoul", year: "2014",
     seasons: [
       { label: "T1", score: 7.79 },
@@ -682,6 +713,29 @@ const EXPANSION = [
     mal: "https://myanimelist.net/anime/31240/Re_Zero_kara_Hajimeru_Isekai_Seikatsu",
     desc: "Subaru es transportado a un mundo de fantasía con la única habilidad de revivir tras morir. Isekai oscuro y brutal.",
     genres: ["Isekai", "Fantasía", "Psychological"],
+  },
+  {
+    title: "Miss Kobayashi's Dragon Maid", year: "2017",
+    seasons: [
+      { label: "T1",        score: 7.90 },
+      { label: "OVA",        score: 7.70 },
+      { label: "T2",        score: 8.20 },
+      { label: "Película 1", score: 8.34 },
+    ],
+    img: "https://myanimelist.net/images/anime/5/85434.jpg",
+    mal: "https://myanimelist.net/anime/33206/Kobayashi-san_Chi_no_Maid_Dragon?q=maid&cat=anime",
+    desc: "Kobayashi, una oficinista solitaria, salva la vida de una dragona llamada Tohru; ahora, la criatura vive en su departamento como una sirvienta hiperactiva, atrayendo a otros seres míticos al mundo humano.",
+    genres: ["Slice of Life", "Sobrenatural"],
+  },
+  {
+    title: "Black Clover", year: "2017",
+    seasons: [
+      { label: "T1",        score: 8.14 },
+    ],
+    img: "https://myanimelist.net/images/anime/2/88336.jpg",
+    mal: "https://myanimelist.net/anime/34572/Black_Clover?q=black%20clov&cat=anime",
+    desc: "Asta, un joven sin una gota de magia en un mundo donde lo es todo, obtiene un grimorio de trébol de cinco hojas y una espada antimagia para demostrar que, incluso siendo un plebeyo, puede convertirse en el Rey Mago.",
+    genres: ["Acción", "Fantasia"],
   },
   {
     title: "Demon Slayer", year: "2019",
@@ -770,6 +824,18 @@ const NEWGEN = [
     genres: ["Acción", "Drama"],
   },
   {
+    title: "Link Click", year: "2021",
+    seasons: [
+      { label: "T1", score: 8.69 },
+      { label: "T2", score: 8.61 },
+      { label: "T2.5", score: 8.30 },
+    ],
+    img: "https://myanimelist.net/images/anime/1135/114867.jpg",
+    mal: "https://myanimelist.net/anime/44074/Shiguang_Dailiren?q=lick%20click&cat=anime",
+    desc: "Cheng Xiaoshi y Lu Guang operan una pequeña tienda de fotografía, utilizando poderes sobrenaturales para entrar en las fotos y cumplir los encargos de sus clientes, bajo la estricta regla de no alterar el pasado para no fracturar el presente.",
+    genres: ["Drama", "Misterio", "Suspense"],
+  },
+  {
     title: "My Dress-Up Darling", year: "2022",
     seasons: [
       { label: "T1", score: 8.13 },
@@ -792,6 +858,16 @@ const NEWGEN = [
     mal: "https://myanimelist.net/anime/50265/Spy_x_Family",
     desc: "Un espía, una asesina y una niña telépata forman una familia falsa para una misión. Humor y ternura en estado puro.",
     genres: ["Acción", "Comedia", "Slice of Life"],
+  },
+  {
+    title: "Cyberpunk: Edgerunners", year: "2022",
+    seasons: [
+      { label: "T1",       score: 8.62 },
+    ],
+    img: "https://myanimelist.net/images/anime/1818/126435.jpg",
+    mal: "https://myanimelist.net/anime/42310/Cyberpunk__Edgerunners?q=Cyberpunk&cat=anime",
+    desc: "David Martinez, un chico de la calle con mucho que perder, se instala un implante cibernético de grado militar para sobrevivir en Night City, convirtiéndose en un mercenario edgerunner en una carrera frenética contra la psicosis cibernética y un sistema que te consume.",
+    genres: ["Acción", "Sci-Fi"],
   },
   {
     title: "Chainsaw Man", year: "2022",
@@ -826,6 +902,17 @@ const NEWGEN = [
     mal: "https://myanimelist.net/anime/52991/Sousou_no_Frieren",
     desc: "Una maga élfica reflexiona sobre el paso del tiempo y los lazos humanos tras la muerte de sus compañeros.",
     genres: ["Aventura", "Fantasía", "Drama"],
+  },
+  {
+    title: "The 100 Girlfriends", year: "2023",
+    seasons: [
+      { label: "T1", score: 7.68 },
+      { label: "T2", score: 7.89 },
+    ],
+    img: "https://myanimelist.net/images/anime/1812/136764.jpg",
+    mal: "https://myanimelist.net/anime/54714/Kimi_no_Koto_ga_Daidaidaidaidaisuki_na_100-nin_no_Kanojo",
+    desc: "Rentarou Aijo, tras ser rechazado 100 veces, descubre que tiene 100 almas gemelas destinadas por un error divino; ahora debe salir con todas y hacerlas felices, porque si no logra conquistarlas, ¡ellas morirán por mala suerte!",
+    genres: ["Comedia", "Romance"],
   },
   {
     title: "The Apothecary Diaries", year: "2023",
@@ -882,12 +969,30 @@ const NEWGEN = [
     genres: ["Acción", "Fantasía"],
   },
   {
+    title: "Witch Hat Atelier", year: "2026",
+    seasons: [
+      { label: "T1", score: 8.75 },
+    ],
+    img: "https://myanimelist.net/images/anime/1726/155542.jpg",
+    mal: "https://myanimelist.net/anime/51553/Tongari_Boushi_no_Atelier?q=witch%20hat%20atelier&cat=anime",
+    desc: "Coco, una niña que sueña con la magia a pesar de no haber nacido con el don, descubre que los hechizos se dibujan en secreto; tras un accidente, se convierte en la aprendiz de Qifrey para aprender el arte de los trazos mágicos y salvar a su madre.",
+    genres: ["Fantasía"],
+  },
+  {
     title: "Kagurabachi", year: "2027",
     seasons: [], // Sin nota aún — muestra N/A automáticamente
     img: "https://myanimelist.net/images/anime/1653/157089.jpg",
     mal: "https://myanimelist.net/anime/64058/Kagurabachi",
     desc: "Chihiro Rokuhira empuña la katana mágica de su padre para cazar a los hechiceros que masacraron a su familia.",
     genres: ["Acción", "Fantasía"],
+  },
+  {
+    title: "Ruri Dragon", year: "????",
+    seasons: [], // Sin nota aún — muestra N/A automáticamente
+    img: "https://myanimelist.net/images/manga/2/269401.jpg",
+    mal: "https://myanimelist.net/anime/63188/Ruri_Dragon",
+    desc: "Ruri Aoki despierta un día descubriendo que le han salido cuernos, solo para que su madre le confiese con total naturalidad que su padre es un dragón; ahora debe lidiar con su nueva fisiología mística mientras intenta sobrevivir a la vida escolar diaria.",
+    genres: ["Slice of Life", "Supernatural"],
   },
 ];
 
