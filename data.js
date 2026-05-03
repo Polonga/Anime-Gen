@@ -987,7 +987,7 @@ const NEWGEN = [
     genres: ["Acción", "Fantasía"],
   },
   {
-    title: "Ruri Dragon", year: "2027",
+    title: "Pepi guarra", year: "2027",
     seasons: [], // Sin nota aún — muestra N/A automáticamente
     img: "https://myanimelist.net/images/manga/2/269401.jpg",
     mal: "https://myanimelist.net/anime/63188/Ruri_Dragon",
